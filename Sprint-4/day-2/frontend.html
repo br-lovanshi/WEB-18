@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frontend</title>
+    <link rel="stylesheet" href="styel.css">
+</head> 
+<style>
+    h1{
+      text-align: center;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  width: auto;
+  margin: auto;
+  padding-bottom: 10px;
+  padding-bottom: 10px;
+}
+    
+    #container{
+     display: grid;
+     width: auto;
+     grid-template-columns: repeat(4,1fr);
+     grid-template-rows: repeat(1,auto);
+     gap: 20px; 
+     margin: auto;
+     
+    } 
+    #container > div{
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      margin: auto;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      padding-bottom: 8px;
+    }
+    div+img{border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+width: 100%;
+      margin-bottom: 0%;
+    }
+    div > h3{
+      margin: 0%;
+    }
+    div > p{
+      /* margin: 0%; */
+      margin-top: 5px;
+      color: gray;
+    }
+    p+img{
+    
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+        margin-top:-10px ;
+        
+    }
+  </style>
+<body>
+    <div id="navbar">
+        <div> <a href="backend.html" target="blank">backend</a></div>
+        <div> <a href="frontend.html" target="blank">frontend</a></div>
+
+    </div>
+    <h1>frontend</h1> 
+    <div id="container">
+        <!-- append data over here   -->
+    </div>
+</body>
+<script>
+var data = JSON.parse(localStorage.getItem("idata"))  
+console.log(data)  
+data.forEach(function(el){
+  
+  var box = document.createElement("div")
+  var img = document.createElement("img")
+  img.setAttribute("src",el.investorImg)
+  var h3 = document.createElement("h3")
+  h3.innerText= el.investorName
+  var ptg = document.createElement("p")
+  ptg.innerText=el.investorRole
+  var logoimg = document.createElement("img")
+  logoimg.setAttribute("src",el.investorCompanyLogo)
+  box.append(img,h3,ptg,logoimg)
+  document.querySelector("#container").append(box)
+})
+</script>
+</html>
