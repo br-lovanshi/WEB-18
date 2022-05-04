@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+</head>
+<body>
+    
+    
+    <form action="" id="form"> 
+        <input type="text" id="name" >
+        <input type="email" id="email">
+        <input type="password" id="pass">
+        <input type="submit" id="submit">
+       </form>
+</body>
+</html>
+<script>
+    var arr = JSON.parse(localStorage.getItem("userData"));
+    // document.querySelector("form").addEventListener("submit",data)
+  
+    document.querySelector("form");
+    form.addEventListener("submit",function(event){
+        event.preventDefault(); 
+        var obj = {
+            email:form.email.value,
+            pass:form.pass.value
+        }
+
+        if(arr == null){
+            alert("please creat account");
+            window.location.href= "signup.html"
+            console.log("creat acc")
+        }else if(arr.email === obj.email && arr.pass === obj.pass){
+            alert("login success"); 
+            localStorage.setItem("sigin",JSON.stringify(arr));
+            window.location.href= "index.html"
+        }else{
+            alert("user not exist")
+        }
+    });
+   
+</script>
