@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,
+			initial-scale=1.0" />
+    <link rel="stylesheet" href="payment.css" class="css" />
+</head>
+
+<body>
+    <div class="container">
+
+
+
+
+        <form id="form" action="" class="card-details" > 
+      
+            <p>Pay using Credit or Debit card</p>
+
+            <div class="card-number">
+                <label> Card Number </label>
+                <input  id="number"    type="text" class="card-number-field" placeholder="###-###-###" />
+            </div>
+            <br />
+            <div class="date-number">
+                <label> Expiry Date </label>
+                <input id="date" type="text" class="date-number-field" placeholder="DD-MM-YY" />
+            </div>
+
+            <div class="cvv-number">
+                <label> CVV number </label>
+                <input id="cvv" type="text" class="cvv-number-field" placeholder="xxx" />
+            </div>
+            <div class="nameholder-number">
+                <label> Card Holder name </label>
+                <input id="name" type="text" class="card-name-field" placeholder="Enter your Name" />
+            </div>
+            <input type="submit" class="submit-now-btn" >
+          
+        </form>
+    </div>
+</body>
+<script>
+    document.querySelector("form").addEventListener("submit",formfun);
+    function formfun(){
+        event.preventDefault()
+        
+            const paymentobj = {
+                number:form.number.value,
+                date:form.date.value,
+                cvv:form.cvv.value,
+                name:form.name.value
+
+            }
+            console.log(paymentobj);
+            localStorage.setItem("paymentData",JSON.stringify(paymentobj))
+            window.location.href="otp.html"
+    }
+</script>
+
+</html>

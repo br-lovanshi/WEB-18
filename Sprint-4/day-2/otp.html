@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP</title> 
+    <link rel="stylesheet" href="payment.css">
+</head>
+<style>
+    .box{
+        width: 400px;
+        /* height: 400px; */
+        margin: auto;
+        background-color: antiquewhite;
+        padding: 15px;
+        text-align: center;
+        margin-top: 20%;
+    } 
+    .submit-now-btn{
+       margin-top: 20px;
+    } 
+    h3{
+        margin-bottom: 10px;
+    }
+</style>
+<body>
+    <div class="box"  class="card-details">
+        <h3>please enter otp</h3>
+        <input class="card-name-field" id="otp" type="number" placeholder="enter otp here">
+        <button  class="submit-now-btn" >
+            submit
+        </button>
+    </div>
+</body>
+<script>
+let otp =   document.querySelector("#otp").value;
+document.querySelector("button").addEventListener("click",otpfun)
+function otpfun(){
+
+if(otp == null){
+    alert("please retry!")
+}
+else if (otp == 1234){
+    alert("Payment Succesully done");
+    console.log("paymet Done ");
+}
+else if (otp != 1234){
+    alert("Payment Failed")
+    console.log("invelid otp");
+}} 
+</script>
+</html>
